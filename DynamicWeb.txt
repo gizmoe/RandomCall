@@ -1,0 +1,89 @@
+
+CREATE TABLE comments(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id),
+ name VARCHAR(25),
+ email VARCHAR(25),
+ comment VARCHAR(500),
+ post_id INT
+)
+
+
+CREATE TABLE Cities(
+city VARCHAR(75),
+state VARCHAR(5),
+counties VARCHAR(128),
+population2011 INT,
+population2010April INT,
+populationChange FLOAT,
+population2010 INT,
+under5 FlOAT,
+under18 FLOAT,
+under65 FLOAT,
+female FLOAT,
+white FLOAT,
+black FLOAT,
+indian FLOAT,
+asian FLOAT,
+Islander FLOAT,
+twoOrMore FLOAT,
+hispanic FLOAT,
+WhiteNotHispanic FLOAT,
+same_House FLOAT,
+foreign_born FLOAT,
+second_Lang FLOAT,
+high_school FLOAT,
+bachelor FLOAT,
+veterans INT,
+travel_time FLOAT,
+ownerShipRate FLOAT,
+multiUnitStructure FlOAT,
+median_value INT,
+house_holds INT,
+per_house FLOAT,
+per_capita INT,
+median_income INT,
+povertyLevel FlOAT,
+numberOfFirms INT,
+womenOwnedFirms FlOAT,
+manuShiptments INT,
+merchentSales INT,
+retailSales INT,
+retailSalePerCapita INT,
+accomAndFoodServicesSales INT,
+landSQ INT,
+personPerSQ FLOAT,
+FIPS INT,
+CountyEmpoyees INT,
+CountyEmployed INT,
+CountyUnemployed INT,
+CountyUnemploymentRate FLOAT,
+Hospitals INT,
+ProfessionalTeams INT,
+Museums INT,
+Libraries INT,
+AmusementParks INT,
+Zoos INT,
+StateIncomeTax INT,
+StateSalesTax INT,
+PropertyTaxCapita INT,
+ViolentCrime INT,
+PropertyCrime INT,
+CrimeRate1000 FLOAT, 
+SexualOffenders INT,
+LawEnforcement INT,
+Education INT,
+PublicFourYear INT,
+PrivateFourYear INT,
+Forbes INT,
+Bloom INT,
+Parenting INT,
+CNN INT
+);
+
+LOAD DATA INFILE '/home/jon/Desktop/FormatReady.csv' INTO TABLE Cities FIELDS TERMINATED BY ',' ENCLOSED BY'"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE '/home/jon/Desktop/FormatReady2.csv' INTO TABLE Cities FIELDS TERMINATED BY ',' ENCLOSED BY'"' LINES TERMINATED BY '\n';
+
+ALTER TABLE Cities ADD id INT PRIMARY KEY NOT NULL AUTO_INCREMENT;
+ALTER TABLE Cities ENGINE = MYISAM
+ALTER TABLE Cities ADD FULLTEXT(city,counties,state)
+
+
